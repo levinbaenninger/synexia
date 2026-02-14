@@ -14,4 +14,4 @@ export const trpc = createTRPCOptionsProxy({
   queryClient: getQueryClient,
 });
 
-export const caller = createAsyncCaller();
+export const caller = cache(createAsyncCaller);
