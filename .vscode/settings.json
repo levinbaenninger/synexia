@@ -49,5 +49,7 @@
   "editor.codeActionsOnSave": {
     "source.fixAll.biome": "explicit",
     "source.organizeImports.biome": "explicit"
-  }
+  },
+  "snyk.advanced.autoSelectOrganization": true,
+  "snyk.advanced.organization": "1fa44131-04e6-4685-8bd6-91d2205e9f45"
 }

@@ -1,6 +1,7 @@
 import { z } from "zod";
+import { createContext } from "../context";
 import { publicProcedure } from "../procedures/public";
-import { mergeRouters, router } from "../trpc";
+import { createCallerFactory, mergeRouters, router } from "../trpc";
 
 const exampleRouter = router({
   hello: publicProcedure
@@ -11,5 +12,11 @@ const exampleRouter = router({
 });
 
 export const appRouter = mergeRouters(exampleRouter);
+
+export const createCaller = createCallerFactory(appRouter);
+export const createAsyncCaller = async () => {
+  const context = await createContext();
+  return createCaller(context);
+};
 
 export type AppRouter = typeof appRouter;
